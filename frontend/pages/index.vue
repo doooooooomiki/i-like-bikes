@@ -1,13 +1,17 @@
 <template>
   <section>
     <h1>i like bikes</h1>
-    <pre>
-      {{response}}
-    </pre>
+    <ul>
+      <li v-for="bike in bikes.data">
+        <BikeTeaser :bike="bike.attributes"></BikeTeaser>
+      </li>
+    </ul>
   </section>
 </template>
 
 <script setup lang="ts">
+
 const { find } = useStrapi()
-const response = await find<IBike>('bikes')
+const bikes = await find<IBike>('bikes')
+
 </script>
