@@ -12,6 +12,11 @@
 <script setup lang="ts">
 
 const { find } = useStrapi()
-const bikes = await find<IBike>('bikes')
+
+const bikeParams = {
+  populate: '*',
+}
+
+const bikes = await find<IBike>('bikes', bikeParams)
 
 </script>
