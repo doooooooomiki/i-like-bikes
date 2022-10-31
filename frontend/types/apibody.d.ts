@@ -1,6 +1,6 @@
 declare interface IAPIBody {
-  data: IData[];
-  meta: IPagination;
+  data: any;
+  meta: any;
 }
 
 declare interface IData {
