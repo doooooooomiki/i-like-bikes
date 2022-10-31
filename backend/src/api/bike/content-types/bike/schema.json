@@ -24,14 +24,23 @@
         "images"
       ]
     },
+    "views": {
+      "type": "biginteger",
+      "default": "0"
+    },
     "photographer": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::photographer.photographer"
     },
-    "views": {
-      "type": "biginteger",
-      "default": "0"
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
