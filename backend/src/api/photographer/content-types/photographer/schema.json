@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "photographers",
+  "info": {
+    "singularName": "photographer",
+    "pluralName": "photographers",
+    "displayName": "Photographer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "twitterHandle": {
+      "type": "string"
+    },
+    "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "unsplashHandle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

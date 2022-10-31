@@ -4,7 +4,7 @@
   "info": {
     "singularName": "bike",
     "pluralName": "bikes",
-    "displayName": "bike",
+    "displayName": "Bike",
     "description": ""
   },
   "options": {
@@ -12,22 +12,26 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "location": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "required": false
     },
-    "description": {
-      "type": "text",
-      "required": true
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "price": {
-      "type": "decimal",
-      "required": true
+    "photographer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::photographer.photographer"
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "name"
+    "views": {
+      "type": "biginteger",
+      "default": "0"
     }
   }
 }
