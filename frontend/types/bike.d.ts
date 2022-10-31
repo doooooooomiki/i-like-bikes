@@ -1,7 +1,6 @@
 declare interface IBike {
-  id: number;
-  name: string;
-  description?: string;
-  price?: number;
+  location?: string;
+  views: number;
+  title?: string;
   slug: string;
 }

@@ -1,9 +1,7 @@
 <template>
-  <div>
     <pre>
       {{bike}}
     </pre>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -19,11 +17,16 @@ const config = useRuntimeConfig();
 // in a setup function, plugin, or route middleware.
 const route = useRoute()
 
-const url = `${config.API_BASE_URL}/api/bikes?filters[slug]=${route.params.slug}`
+const url = `${config.API_BASE_URL}/api/bikes?filters[slug][$eq]=${route.params.slug}`
+const options = {
+  // https://v3.nuxtjs.org/api/composables/use-fetch/#params
+  // https://stackoverflow.com/questions/73358147/why-usefetch-is-not-working-on-page-change-in-nuxt3-on-client-side
+  key: `slug:${route.params.slug}`,
+}
 
 // useFetch
 // https://v3.nuxtjs.org/api/composables/use-fetch#usefetch
 // This composable provides a convenient wrapper around useAsyncData and $fetch.
-const { data: bike } = await useFetch(url)
+const { data: bike } = await useFetch<IAPIBody>(url, options)
 
 </script>
