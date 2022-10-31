@@ -16,7 +16,8 @@ export default defineNuxtConfig({
   // Variables that need to be accessible on both the client and the server are defined in runtimeConfig.public.
   runtimeConfig: {
     public: {
-      API_BASE_URL: process.env.API_BASE_URL || '/api'
+      API_BASE_URL: process.env.API_BASE_URL || '/api',
+      UNSPASH_BASE_URL: process.env.UNSPASH_BASE_URL || '/api',
     }
     
   },
