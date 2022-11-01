@@ -8,9 +8,6 @@
           <img :src="bikeUrl" alt="">
         </div>
       </figure>
-
-      <!-- <hr> -->
-      <!-- <pre>{{bike.data}}</pre> -->
   </div>
 </template>
 
