@@ -4,7 +4,7 @@
 
     <header>
       <NuxtLink :to="`/photographers/${photographerSlug}`">
-        {{bikeName}}
+        {{photographerName}}
       </NuxtLink>
     </header>
 
@@ -42,7 +42,7 @@ const bikeUrl = computed(() => {
   return `${config.API_BASE_URL + props.bike.image.data.attributes.url}`
 })
 
-const bikeName = computed(() => {
+const photographerName = computed(() => {
   return props.bike.photographer.data.attributes.name
 })
 
