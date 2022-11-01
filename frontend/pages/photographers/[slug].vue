@@ -1,9 +1,9 @@
 <template>
   <div class="photographer">
-    <img :src="`${config.API_BASE_URL + photographer.data[0].attributes.profilePicture.data.attributes.url}`" alt="">
+    <img :src="profilePictureUrl" alt="">
     <p>
-      Visit <span>{{photographer.data[0].attributes.name}}</span> on
-      <a target=”_blank” :href="`${config.UNSPASH_BASE_URL}/${photographer.data[0].attributes.unsplashHandle}`">Unsplash</a>
+      Visit <span>{{photographerName}}</span> on
+      <a target=”_blank” :href="unsplashUrl">Unsplash</a>
     </p>
   </div>
 </template>
@@ -32,6 +32,18 @@ const options = {
 // https://v3.nuxtjs.org/api/composables/use-fetch#usefetch
 // This composable provides a convenient wrapper around useAsyncData and $fetch.
 const { data: photographer } = await useFetch<IAPIBody>(url, options)
+
+const profilePictureUrl = computed(() => {
+  return `${config.API_BASE_URL + photographer.value.data[0].attributes.profilePicture.data.attributes.url}`
+})
+
+const unsplashUrl = computed(() => {
+  return `${config.UNSPASH_BASE_URL}/${photographer.value.data[0].attributes.unsplashHandle}`
+})
+
+const photographerName = computed(() => {
+  return `${photographer.value.data[0].attributes.name}`
+})
 
 </script>
 
