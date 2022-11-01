@@ -36,6 +36,8 @@ const props = defineProps<{
   bike: IBike,
 }>()
 
+// Computed Properties
+// https://vuejs.org/guide/essentials/computed.html
 const bikeUrl = computed(() => {
   return `${config.API_BASE_URL + props.bike.image.data.attributes.url}`
 })
