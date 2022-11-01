@@ -9,8 +9,8 @@ declare interface IData {
 }
 
 declare interface IPagination{
-  page: 1;
-  pageSize: 25;
-  pageCount: 1;
-  total: 2;
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
 }
