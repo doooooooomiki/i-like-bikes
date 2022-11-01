@@ -28,4 +28,8 @@ ul {
   padding: unset;
 }
 
+li + li {
+  margin-top: 2rem;
+}
+
 </style>
