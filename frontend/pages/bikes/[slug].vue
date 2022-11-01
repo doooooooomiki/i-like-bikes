@@ -1,7 +1,11 @@
 <template>
+  <div>
     <pre>
       {{bike}}
     </pre>
+
+    <div>{{bikeTitle}}</div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -28,5 +32,9 @@ const options = {
 // https://v3.nuxtjs.org/api/composables/use-fetch#usefetch
 // This composable provides a convenient wrapper around useAsyncData and $fetch.
 const { data: bike } = await useFetch<IAPIBody>(url, options)
+
+const bikeTitle = computed(() => {
+  return bike.value.data[0].attributes.title
+})
 
 </script>
