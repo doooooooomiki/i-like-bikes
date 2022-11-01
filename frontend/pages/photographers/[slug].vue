@@ -3,7 +3,7 @@
     <img :src="`${config.API_BASE_URL + photographer.data[0].attributes.profilePicture.data.attributes.url}`" alt="">
     <p>
       Visit <span>{{photographer.data[0].attributes.name}}</span> on
-      <a :href="`${config.UNSPASH_BASE_URL}/${photographer.data[0].attributes.unsplashHandle}`">Unsplash</a>
+      <a target=”_blank” :href="`${config.UNSPASH_BASE_URL}/${photographer.data[0].attributes.unsplashHandle}`">Unsplash</a>
     </p>
   </div>
 </template>
@@ -42,6 +42,7 @@ const { data: photographer } = await useFetch<IAPIBody>(url, options)
   border-radius: 50%;
   display: block;
   overflow: hidden;
+  width: 128px;
 }
 
 </style>

@@ -13,7 +13,9 @@
         <figcaption>
           {{bike.title}}
         </figcaption>
-        <img :src="`${config.API_BASE_URL + bike.image.data.attributes.url}`" alt="">
+        <div>
+          <img :src="`${config.API_BASE_URL + bike.image.data.attributes.url}`" alt="">
+        </div>
       </figure>
     </NuxtLink>
 
@@ -40,10 +42,29 @@ defineProps<{
 
 .bike-teaser a {
   display: inline-block;
+  text-decoration: none;
 }
 
 .bike-teaser img {
+  width: 100%
+}
+
+figure {
   width: 200px;
+  margin: unset;
+}
+
+figure div {
+  width: 100%;
+  overflow: hidden;
+}
+
+figure img {
+  transition: transform 200ms ease;
+}
+
+figure:hover img {
+  transform: scale(1.08);
 }
 
 </style>

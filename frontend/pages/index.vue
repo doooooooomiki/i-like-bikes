@@ -20,3 +20,12 @@ const bikeParams = {
 const bikes = await find<IBike>('bikes', bikeParams)
 
 </script>
+
+<style scoped>
+
+ul {
+  list-style: none;
+  padding: unset;
+}
+
+</style>
