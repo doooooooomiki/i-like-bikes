@@ -3,8 +3,8 @@
   <div class="bike-teaser">
 
     <header>
-      <NuxtLink :to="`/photographers/${bike.photographer.data.attributes.slug}`">
-        {{bike.photographer.data.attributes.name}}
+      <NuxtLink :to="`/photographers/${photographerSlug}`">
+        {{bikeName}}
       </NuxtLink>
     </header>
 
@@ -14,7 +14,7 @@
           {{bike.title}}
         </figcaption>
         <div>
-          <img :src="`${config.API_BASE_URL + bike.image.data.attributes.url}`" alt="">
+          <img :src="bikeUrl" alt="">
         </div>
       </figure>
     </NuxtLink>
@@ -32,9 +32,21 @@ const config = useRuntimeConfig();
 // https://vuejs.org/api/sfc-script-setup.html#typescript-only-features
 // defineProps is a compiler macro only usable inside <script setup>. 
 // It does not need to be imported, and is compiled away when <script setup> is processed.
-defineProps<{
+const props = defineProps<{
   bike: IBike,
 }>()
+
+const bikeUrl = computed(() => {
+  return `${config.API_BASE_URL + props.bike.image.data.attributes.url}`
+})
+
+const bikeName = computed(() => {
+  return props.bike.photographer.data.attributes.name
+})
+
+const photographerSlug = computed(() => {
+  return props.bike.photographer.data.attributes.slug
+})
 
 </script>
 
